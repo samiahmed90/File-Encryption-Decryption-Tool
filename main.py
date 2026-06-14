@@ -6,19 +6,17 @@ def generate_key(file_path = 'encryption_key.key'):
         key_file.write(key)
         print (f"Encryption key is saved in to: {file_path}")
 
-generate_key()
-
 
 def load_key(file_path = 'encryption_key.key'):
     with open (file_path, 'rb') as key_file:
-        key = key_file.read
+        key = key_file.read()
         return key
     
-load_key()
+
 
 def encrypt_file (input_file, output_file, key):
     fernet = Fernet(key)
-    with open('input_file', 'rb') as file:
+    with open(input_file, 'rb') as file:
        original =  file.read()
        encrypted = fernet.encrypt(original)
     
@@ -43,7 +41,8 @@ def main():
         print("2. Encrypt a file")
         print("3. Decrypt a file")
         print("4. Exit the program")
-        option = input ("Please choose an option.")
+        option = input ("Please choose an option: ")
+        
         if option   == '1':
             file_path = input ("Enter the file path to save the key (default: 'encryption_key.key'): ") or 'encryption_key.key'
             generate_key(file_path)
@@ -60,19 +59,21 @@ def main():
         elif option == '3':
             input_file = input("Enter the path of the file to decrypt: ")
             output_file = input("Enter the name of the output file: ")
-            key_path = input ("Enter the path of the dncryption key otherwise the default will be used") or 'encryption_key.key'
+            key_path = input ("Enter the path of the dncryption key otherwise the default will be used: ") or 'encryption_key.key'
             try:
                 key = load_key(key_path)
-                encrypt_file(input_file, output_file, key)
+                decrypt_file(input_file, output_file, key)
             except Exception as e:
                 print(f"Error during decryption: {e}")
         
         elif option == '4':
             print("Exiting the program")
             break
+        else:
+            print("Please choose a valid option")
 
 
-    
+main()
 
 
        
