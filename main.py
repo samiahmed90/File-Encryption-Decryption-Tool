@@ -43,6 +43,11 @@ def main():
         print("2. Encrypt a file")
         print("3. Decrypt a file")
         print("4. Exit the program")
+        option = input ("Please choose an option.")
+        if option   == '1':
+            file_path = input ("Enter the file path to save the key (default: 'encryption_key.key'): ") or 'encryption_key.key'
+            generate_key(file_path)
+       
 
         
 
