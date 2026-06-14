@@ -24,6 +24,14 @@ def encrypt_file (input_file, output_file, key):
     
     with open(output_file, 'wb') as file:
         file.write(encrypted)
-        print(f"File encrypted and saved to: {output_file}")
+        print(f"File {input_file} encrypted and saved to: {output_file}")
 
-
+def decrypt_file (input_file, output_file, key):
+    fernet = Fernet(key)
+    with open(input_file, 'rb') as file:
+        encrypted = file.read()
+        decrypted = fernet.decrypt(encrypted)
+    
+    with open(output_file, 'wb') as file:
+        file.write(decrypted)
+        print(f"File {input_file} decrypted and saved to: {output_file}")
