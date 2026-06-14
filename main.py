@@ -15,3 +15,15 @@ def load_key(file_path = 'encryption_key.key'):
         return key
     
 load_key()
+
+def encrypt_file (input_file, output_file, key):
+    fernet = Fernet(key)
+    with open('input_file', 'rb') as file:
+       original =  file.read()
+       encrypted = fernet.encrypt(original)
+    
+    with open(output_file, 'wb') as file:
+        file.write(encrypted)
+        print(f"File encrypted and saved to: {output_file}")
+
+
