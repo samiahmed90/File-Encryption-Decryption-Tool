@@ -35,3 +35,15 @@ def decrypt_file (input_file, output_file, key):
     with open(output_file, 'wb') as file:
         file.write(decrypted)
         print(f"File {input_file} decrypted and saved to: {output_file}")
+
+def main():
+    print("Welcome to the Encryption/Decryption Tool")
+    while True:
+        print("1. Generate an Encryption key")
+        print("2. Encrypt a file")
+        print("3. Decrypt a file")
+        print("4. Exit the program")
+
+        
+
+
