@@ -47,6 +47,17 @@ def main():
         if option   == '1':
             file_path = input ("Enter the file path to save the key (default: 'encryption_key.key'): ") or 'encryption_key.key'
             generate_key(file_path)
+        elif option == '2':
+            input_file = input("Enter the path of the file to encrypt: ")
+            output_file = input("Enter the name of the output file: ")
+            key_path = input ("Enter the path of the encryption key otherwise the default will be used") or 'encryption_key.key'
+            try:
+                key = load_key(key_path)
+                encrypt_file(input_file, output_file, key)
+            except Exception as e:
+                print(f"Error during encryption: {e}")
+                
+
        
 
         
