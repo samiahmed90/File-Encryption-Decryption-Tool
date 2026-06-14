@@ -56,7 +56,24 @@ def main():
                 encrypt_file(input_file, output_file, key)
             except Exception as e:
                 print(f"Error during encryption: {e}")
-                
+
+        elif option == '3':
+            input_file = input("Enter the path of the file to decrypt: ")
+            output_file = input("Enter the name of the output file: ")
+            key_path = input ("Enter the path of the dncryption key otherwise the default will be used") or 'encryption_key.key'
+            try:
+                key = load_key(key_path)
+                encrypt_file(input_file, output_file, key)
+            except Exception as e:
+                print(f"Error during decryption: {e}")
+        
+        elif option == '4':
+            print("Exiting the program")
+            break
+
+
+    
+
 
        
 
